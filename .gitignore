@@ -1,2 +1,4 @@
 /venv
 constants.py
+config.ini
+databaseconfig.py
