@@ -2,3 +2,4 @@
 constants.py
 config.ini
 databaseconfig.py
+manage.py
