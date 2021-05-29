@@ -35,12 +35,13 @@ class User:
         
         self.uri = uri,
         self.method = method
+        
         #get auth token
         authorized_token = oauth2.Token(self.oauth_token, self.oauth_token_secret)
         authorized_client = oauth2.Client(consumer,authorized_token)
 
         #Make Twitter calls!
-        response, content = authorized_client.request(self.uri,self.method)
+        response, content = authorized_client.request(uri,method)
         if response.status != 200:
             print("Error occured while searching")
-        return json.loads(content.encode('utf-8'))
+        return json.loads(content.decode('utf-8'))

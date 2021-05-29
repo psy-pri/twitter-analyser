@@ -1,6 +1,12 @@
 <html>
     <title>User Profile</title>
     <body>
-        {{ screen_name }}
+        <p>Hello
+        {{ screen_name }}!</p>
+        <form action="{% url 'search' %}">
+            <label for "q">Twitter Search</label>
+            <input type = 'text' name = 'q' id = 'q' placeholder="Type your search keyword">  
+            <button type = 'submit'>Search</button>
+        </form>
     </body>
 </html>    

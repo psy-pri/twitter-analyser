@@ -22,10 +22,7 @@ if not user:
     #Ask Twitter for access token and twitter would return it as we have the verified request token
     access_token = get_access_token(request_token,oauth_verifier)
 
-tweets = user.twitter_request('https://api.twitter.com/1.1/search/tweets.json?q=cats+filter:images')
 
-for tweet in tweets['statuses']:
-    print(tweet['text'])
 
 
 
