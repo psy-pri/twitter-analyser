@@ -4,6 +4,8 @@ from django.http.request import HttpRequest
 from django.shortcuts import redirect, render
 from twitter_utils import get_request_token,get_access_token,get_oauth_verifier,get_oauth_verifier_url
 from user import User
+import requests
+from django.template.defaulttags import register
 
 #class initialization
 Database.initialise(database=creds['db'],user=creds['user'],password=creds['passwd'])
@@ -54,6 +56,16 @@ def search(request):
     query = request.GET.getlist('q')
     tweets = user.twitter_request('https://api.twitter.com/1.1/search/tweets.json?q={}'.format(query))
 
-    tweets_texts = [tweet['text'] for tweet in tweets['statuses']]
+    tweets_texts = [{'tweet': tweet['text'], 'label': 'neutral'} for tweet in tweets['statuses']]
+    
+    for tweet in tweets_texts:
+        r = requests.post('http://text-processing.com/api/sentiment/', data = {"text": tweet['tweet']})
+        json_response = r.json()
+        label = json_response['label']
+        tweet['label'] = label
     
     return render(request,'search.html',{"tweets_texts":tweets_texts})
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
