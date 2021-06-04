@@ -8,12 +8,12 @@
         <div class = "container">
             <ul class = "list-group" id = 'tweets'>
                 {% for tweets in tweets_texts %}
-                    {% if tweet.label == 'neg' %} 
-                    <li class = "list-group-item list-group-item-danger">{{ tweets.tweet }}</li>
-                    {% elif tweet.label == 'pos' %}
-                    <li class = "list-group-item list-group-item-success">{{ tweets.tweet }}</li>
+                    {% if tweets.label == "neg" %} 
+                        <li class = "list-group-item list-group-item-danger">{{ tweets.tweet }}</li>
+                    {% elif tweets.label == "pos" %}
+                        <li class = "list-group-item list-group-item-success">{{ tweets.tweet }}</li>
                     {% else %}
-                    <li class = "list-group-item list-group-item-dark">{{ tweets.tweet }}</li>
+                        <li class = "list-group-item list-group-item-dark">{{ tweets.tweet }}</li>
                     {% endif %}
                 {% endfor %}
             </ul>
