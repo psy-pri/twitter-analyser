@@ -1,7 +1,9 @@
 # twitter-analyser
 Web application for sentiment analysis of tweets.
 
-# Login Page - Enter the keyword for which tweets should be analysed.
+# Login Page
+
+Enter the keyword for which tweets should be analysed.
 
 
 [![login.png](https://i.postimg.cc/tTQZr53r/login.png)](https://postimg.cc/GBKmtvSY)
