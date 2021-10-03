@@ -1,24 +1,65 @@
 <html>
-<title>Search Results</title>
-<head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"></head>
-<body>
-    <div class="bg-image" 
-            style="background-image:url('https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/05/twitter-1-1589175890.jpg'); height: 100vh;">
-        <div class="mask" style="background-color: rgba(236, 232, 232, 0.6); height: 100vh;">
-        <div class = "container">
-            <ul class = "list-group" id = 'tweets'>
-                {% for tweets in tweets_texts %}
-                    {% if tweets.label == "neg" %} 
-                        <li class = "list-group-item list-group-item-danger">{{ tweets.tweet }}</li>
-                    {% elif tweets.label == "pos" %}
-                        <li class = "list-group-item list-group-item-success">{{ tweets.tweet }}</li>
-                    {% else %}
-                        <li class = "list-group-item list-group-item-dark">{{ tweets.tweet }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+  <title>Search Results</title>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div
+      class="bg-image"
+      style="
+        background-image: url('https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/05/twitter-1-1589175890.jpg');
+        height: 100vh;
+      "
+    >
+      <div
+        class="mask text-center d-flex align-items-center"
+        style="background-color: rgba(236, 232, 232, 0.6); height: 100vh"
+      >
+        <div class="container align-items-center">
+          <ul class="list-group fw-bold" id="tweets">
+            {% for tweets in tweets_texts %} {% if tweets.label == "neg" %}
+            <li
+              class="
+                list-group-item list-group-item-danger
+                fw-normal
+                rounded-pill
+                border-4
+              "
+            >
+              {{ tweets.tweet }}
+            </li>
+            {% elif tweets.label == "pos" %}
+            <li
+              class="
+                list-group-item list-group-item-success
+                fw-normal
+                rounded-pill
+                border-4
+              "
+            >
+              {{ tweets.tweet }}
+            </li>
+            {% else %}
+            <li
+              class="
+                list-group-item list-group-item-dark
+                fw-normal
+                rounded-pill
+                border-4
+              "
+            >
+              {{ tweets.tweet }}
+            </li>
+            {% endif %} {% endfor %}
+          </ul>
         </div>
+      </div>
     </div>
-    </div>
-</body>
+  </body>
 </html>

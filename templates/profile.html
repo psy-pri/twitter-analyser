@@ -1,23 +1,31 @@
 <html>
     <head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"></head>
     <title>User Profile</title>
+    <link rel="stylesheet" href="style.css" />
     <body>
-        <div class="bg-image" "h-100 d-flex justify-content-end align-items-center" 
-            style="background-image:url('https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/05/twitter-1-1589175890.jpg'); height: 100vh;">
-            <div class="mask" style="background-color: rgba(236, 232, 232, 0.6); height: 100vh;">
+     
+            <div
+            style="
+              background-image: url('https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/05/twitter-1-1589175890.jpg');
+              height: 100vh;
+              text-align: center;
+            "
+          >
+            <div class="mask" style="background-color: rgba(236, 232, 232, 0.6); height: 100vh; ">
                 <div style = "position: absolute;
                 left: 50%;
                 top: 50%;
-                transform: translate(-50%, -50%);">
-                <center><H1>Hello
-                    {{ screen_name }}!</H1><br>
-                </center>
+                transform: translate(-50%, -50%);
+                ">
+               <h1 class="text-center fw-bolder">Hello
+                    {{ screen_name }}!</h1><br>
+               
                     <form action="{% url 'search' %}">
                         <center>
-                            <label for "q" style="font-size:20">Twitter Search</label>
-                            <input type = 'text' size = '65'  name = 'q' id = 'q' placeholder="Type your search keyword"><br><br>
+                            <label for ="q" style="font-size:20; letter-spacing: 0.2rem;" class="fw-bold">Twitter Search</label>
+                            <input type = 'text' size = '65'  name = 'q' id = 'q' placeholder="Type your search keyword" class="border-primary p-2 rounded-pill text-center"><br><br>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button type="button submit" class="btn btn-info btn btn-primary btn-sm">Search</button>
+                                <button type="button submit" class="btn btn-info btn btn-primary btn-sm bg-light"><span class="text-primary fw-bold" style="letter-spacing: 0.2rem;">Search</span></button>
                             </div>
                         </div>    
                         </center>
